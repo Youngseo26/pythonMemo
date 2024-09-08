@@ -10,8 +10,15 @@ memos=[]
     
 app = FastAPI()
 
-@app.post("/memos")
+@app.get("/memos")
+def read_memo():
+    return memos
+
+@app.post("/memos") 
 def create_memo(memo:Memo):
     memos.append(memo)
     return 'Success!'
+
+
+
 app.mount("/", StaticFiles(directory="static", html=True), name="static")

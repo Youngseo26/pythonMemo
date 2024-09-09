@@ -46,6 +46,7 @@ function displayMemo(memo) {
 async function readMemo() {
   const res = await fetch("/memos");
   const jsonRes = await res.json();
+  console.log(jsonRes);
   const ul = document.querySelector("#memo_ul");
   ul.innerHTML = "";
   //jsonRes = [{id:123,content:'blah blah'}]
@@ -64,15 +65,7 @@ async function createMemo(value) {
     }),
   });
 
-  const jsonRes = await res.json();
-  console.log(jsonRes);
-}
-
-function handleSubmit(event) {
-  event.preventDefault();
-  const input = document.querySelector("#memo-input");
-  createMemo(input.value);
-  input.value = "";
+  readMemo();
 }
 
 function handleSubmit(event) {

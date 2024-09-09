@@ -37,7 +37,7 @@ function displayMemo(memo) {
   delBtn.addEventListener("click", deleteMemo);
   delBtn.dataset.id = memo.id;
 
-  li.innerText = `[id:${memo.id}] ${memo.content}`;
+  li.innerText = `${memo.content}`;
   ul.appendChild(li);
   li.appendChild(editBtn);
   li.appendChild(delBtn);
